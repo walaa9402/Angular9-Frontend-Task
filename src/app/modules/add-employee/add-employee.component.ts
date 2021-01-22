@@ -78,8 +78,6 @@ export class AddEmployeeComponent implements OnInit  {
   // #region main actions
 
   addEmployee(model: EmployeeDto) {
-    console.log(this.employeeForm)
-    console.log(model);
     this.formSubmitted = true;
     if (this.employeeForm.valid) {
       this.formSubmitted = false;
