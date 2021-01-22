@@ -1,0 +1,7 @@
+<section>
+    <ul>
+        <li *ngFor="let link of sideMenuLinks">
+            <a [routerLink]="link.routerLink">{{link.text}}</a>
+        </li>
+    </ul>
+</section>
