@@ -1,7 +1,10 @@
-<section>
-    <ul>
-        <li *ngFor="let link of sideMenuLinks">
-            <a [routerLink]="link.routerLink">{{link.text}}</a>
+<section class="side-menu__section__container">
+    <ul class="list-group p-0">
+        <li class="list-group-item bg-warning">
+            <a class="text-dark" [routerLink]="['/add-employee']">{{'Add Employee' | translate}}</a>
+        </li>
+        <li class="list-group-item bg-warning">
+            <a class="text-dark" [routerLink]="['/employee-list']">{{'Employee List' | translate}}</a>
         </li>
     </ul>
 </section>

@@ -14,16 +14,16 @@ export class HeaderComponent implements OnInit {
   languageCode = 'en';
   languages = [
     { 'languageCode': 'en', 'languageName': 'English' },
-    { 'languageCode': 'ar', 'languageName': 'Arabic' }
+    { 'languageCode': 'ar', 'languageName': 'العربية' }
   ]
 
   // #endregion 
 
   // #endregion 
-  
+
   // #region constructor
-  
-  constructor(public translate: TranslateService) { 
+
+  constructor(public translate: TranslateService) {
     // init variables
     this.today = new Date();
   }
@@ -35,13 +35,20 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-   // #endregion 
-  
+  // #endregion 
+
   // #region main actions
 
   languageChange(lang: string) {
-    this.languageCode = lang;
-    this.translate.use(this.languageCode);
+    this.translate.use(lang);
+    if (lang == "en") {
+      document.getElementsByTagName('html')[0].setAttribute('dir', 'ltr');
+      document.getElementsByTagName('body')[0].setAttribute('style', 'text-align:left;');
+    }
+    if (lang == "ar") {
+      document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
+      document.getElementsByTagName('body')[0].setAttribute('style', 'text-align:right;');
+    }
   }
 
   // #endregion 

@@ -1,1 +1,71 @@
-<p>add-employee works!</p>
+<section class="pt-4">
+    <div class="row m-0 p-0">
+        <!-- employee name -->
+        <div class="col-5 form-group" [formGroup]="employeeForm">
+            <label for="name">{{'Employee Name' | translate}} <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="employeeModel.name" formControlName="txtName"
+                [class.has-error]="formSubmitted && employeeFormControls.txtName.errors"
+                >
+        </div>
+        <!-- department -->
+        <div class="col-5 form-group" [formGroup]="employeeForm">
+            <label for="department">{{'Department' | translate}}<span class="text-danger">*</span></label>
+            <select class="form-control" id="department" formControlName="ddlDepartment"
+                [(ngModel)]="employeeModel.department" 
+                [class.has-error]="formSubmitted && employeeFormControls.ddlDepartment.errors">
+                <option [value]="'Department 1'">{{'Department 1' | translate}}</option>
+                <option [value]="'Department 2'">{{'Department 2' | translate}}</option>
+                <option [value]="'Department 3'">{{'Department 3' | translate}}</option>
+                <option [value]="'Department 4'">{{'Department 4' | translate}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row m-0 p-0">
+        <!-- employee code -->
+        <div class="col-5 form-group" [formGroup]="employeeForm">
+            <label for="code">{{'Employee Code' | translate}} 
+                <span class="text-danger">* </span>
+                <small class="text-danger" *ngIf="formSubmitted && employeeFormControls.txtCode.errors?.min">
+                     code should only contain positive numbers
+                </small>
+            </label>
+            <input type="number" class="form-control" min="1" id="code" [(ngModel)]="employeeModel.code"
+                 formControlName="txtCode"
+                [class.has-error]="formSubmitted && employeeFormControls.txtCode.errors">
+        </div>
+        <!-- birthday -->
+        <div class="col-5 form-group" [formGroup]="employeeForm">
+            <label>{{'Birthday' | translate}} <span class="text-danger">*</span></label>
+            <div class="input-group">
+                <input class="form-control" name="dp" ngbDatepicker #datePicker="ngbDatepicker"
+                     [(ngModel)]="employeeModel.birthday" formControlName="txtBirthday"
+                    [class.has-error]="formSubmitted && employeeFormControls.txtBirthday.errors">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary calendar" (click)="datePicker.toggle()" type="button"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- gender -->
+    <div class="row m-0 p-0">
+        <div class="col-3">
+            <label>{{'Gender' | translate}} </label>
+        </div>
+        <div class="col-3 form-group">
+            <label class="radio-inline"><input type="radio" name="gender" value="Male"
+                    [(ngModel)]="employeeModel.gender"> {{'Male' | translate}}</label>
+        </div>
+        <div class="col-3 form-group">
+            <label class="radio-inline"><input type="radio" name="gender" value="Female"
+                    [(ngModel)]="employeeModel.gender"> {{'Female' | translate}}</label>
+        </div>
+    </div>
+    <!-- search -->
+    <div class="row m-0 p-0 justify-content-end">
+        <div class="col-3">
+            <button type="submit" class="btn btn-secondary w-100" (click)="addEmployee(employeeModel)">{{'ADD' |
+                translate}}</button>
+        </div>
+    </div>
+</section>

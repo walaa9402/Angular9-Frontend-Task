@@ -1,1 +1,55 @@
-<p>employee-list works!</p>
+<section class="pt-4">
+    <!-- search area -->
+    <div class="row m-0 p-0">
+        <div class="col-4 form-group">
+            <label for="name">{{'Employee Name' | translate}} <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="employeeName"
+            [class.has-error]="searchSubmitted && !employeeName">
+        </div>
+        <div class="col-4 form-group">
+            <label for="department">{{'Department' | translate}}<span class="text-danger">*</span></label>
+            <select class="form-control" id="department" [(ngModel)]="employeeDepartment"
+            [class.has-error]="searchSubmitted && !employeeDepartment">
+                <option [value]="'Department 1'">{{'Department 1' | translate}}</option>
+                <option [value]="'Department 2'">{{'Department 2' | translate}}</option>
+                <option [value]="'Department 3'">{{'Department 3' | translate}}</option>
+                <option [value]="'Department 4'">{{'Department 4' | translate}}</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <label>&nbsp;</label>
+            <button type="submit" class="btn btn-secondary w-100" (click)="search()">{{'Search' | translate}}</button>
+        </div>
+    </div>
+    <!-- search results -->
+    <div class="row m-0 p-0 justify-content-end employee-list__grid__height">
+        <table class="col-12 table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">
+                        <div class="checkbox">
+                            <input type="checkbox" [(ngModel)]="selectAllEmployees" (change)="handleSelectAllEmployee(selectAllEmployees)">
+                        </div>
+                    </th>
+                    <th scope="col">{{'Employee Name' | translate}}</th>
+                    <th scope="col">{{'Employee Code' | translate}}</th>
+                    <th scope="col">{{'Department' | translate}}</th>
+                    <th scope="col">{{'Birthday' | translate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of listOfEmployee">
+                    <th scope="row">
+                        <div class="checkbox">
+                            <input type="checkbox" [id]="employee.id" [(ngModel)]="employee.selected">
+                        </div>
+                    </th>
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.code}}</td>
+                    <td>{{employee.department}}</td>
+                    <td>{{employee.birthday.year}} - {{employee.birthday.month}} - {{employee.birthday.day}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

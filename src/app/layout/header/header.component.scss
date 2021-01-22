@@ -3,7 +3,13 @@
     color:aliceblue;
     height: 60px;
     .header__logo__style img{
-        height: 57px;
+        height: 40px;
         width: auto;
+    }
+    .header__profile-image__modifier{
+        height: 25px;
+        width: 25px;
+        border:1px solid transparent;
+        border-radius: 50%;
     }
 }

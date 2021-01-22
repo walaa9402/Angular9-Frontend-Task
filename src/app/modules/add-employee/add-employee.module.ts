@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { AddEmployeeComponent } from './add-employee.component';
 
-
 const routes: Routes = ([
   {
     path: "",

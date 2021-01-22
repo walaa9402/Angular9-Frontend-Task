@@ -1,0 +1,26 @@
+{
+    "Walaa Alaa Sayed":"ولاء علاء سيد",
+    "Profile": "الصفحة الشخصية",
+    "Settings": "الإعدادات",
+    "Logout": "تسجيل الخروج",
+
+    "Add Employee": "إضافة موظف",
+    "Employee List": "قائمة الموظفين",
+
+    "©2021 Andalusia. All contents are copyright of their authors":"© 2021 الأندلسية. جميع المحتويات هي حقوق التأليف والنشر لمؤلفيها",
+
+    "Employee Name": "اسم الموظف",
+    "Employee Code": "كود الموظف",
+    "Birthday": "تاريخ الميلاد",
+    "Department": "القسم",
+    "Department 1": "قسم 1",
+    "Department 2": "قسم 2",
+    "Department 3": "قسم 3",
+    "Department 4": "قسم 4",
+    "Gender": "النوع",
+    "Male": "ذكر",
+    "Female": "أنثى",
+    "ADD": "إضافة",
+
+    "Search": "بــــحث"
+}

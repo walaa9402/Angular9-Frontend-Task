@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-side-menu',
@@ -15,7 +16,7 @@ export class SideMenuComponent implements OnInit {
 
   // #region constructor
 
-  constructor() { 
+  constructor(public translate: TranslateService) { 
     // init variables
     this.sideMenuLinks = [
       {text:"Add Employee",routerLink:"/add-employee"},
